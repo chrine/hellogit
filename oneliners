@@ -1,0 +1,9 @@
+# git remove by file extension
+git ls-files | grep '\.pyc$' | xargs git rm
+git ls-files | grep '\.swp$' | xargs git rm
+
+# remove whitespace at end of lines (from shell)
+perl -pi -e 's/\s+$/\n/' *.cpp
+
+# remove whitespace at end of lines (from vim)
+:%s/\s\+$//
