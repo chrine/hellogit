@@ -2,33 +2,37 @@ working directory
 staging index
 head
 
-git clone
+git clone <the repo> 	# this only happens once
 
-git log
-git blame
+git log -5				# look at 5 most recent commits and identifying hash
+git blame <file>		# timestamp and names for last change to each line of the file
 
-git status -uno
-git diff
+<make my changes>
 
-git stash
+git status				# state of the working directory (files that are tracked but unchanged will not show up)
+git diff				# show all local changes
 
-git pull --rebase 		# i.e. fetch, then merge
-git rebase --continue
+git stash				# stash my changes for now
+git pull --rebase 		# grab other users' changes from the remote server and apply them before your own
+git stash pop			# apply my changes
 
-git stash pop
+<conflicts may appear here>
+<resolve each conflicted file>
+https://www.stefaanlippens.net/resolve-git-unmerged-paths-after-stash-pop/
 
-git add 				# to resolve merge conflicts and stage for commit
+git add <file1> <file2>	# stage files for commit when you're ready, including conflict fixes
 git reset 				# unstage all files
 
 git commit -m "describe my change"
-git commit --amend
 
 git diff --name-status origin/master..HEAD # double check your commits before pushing
 
 git reset HEAD~1 		# uncommit and unstage most recent commit (i.e. move HEAD pointer to 1-th parent)
-git reset --soft HEAD~1 # uncommit most recent commit, keep files staged
+git reset --soft HEAD~1 # uncommit most recent commit, but keep files staged
 
-git push
+git push				# send it into the universe!
 
-git revert
+git revert <commit hash>	# this creates a new commit reversing a previous commit
+git push					# send it like any other kind of commit
+
 
